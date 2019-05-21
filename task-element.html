@@ -1,0 +1,75 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+
+<dom-module id="task-element">
+  <template>
+    <style>
+      :host {
+        display: block;
+        --icon-size: var(--icon-size-task-element, 20px);
+        --primary-color: var(--primary-color-task-element, #3f51b5);
+        --secondary-color: var(--secondary-color-task-element, #fff);
+        --done-color: var(--done-color-task-element, #38E896);
+        --cancelled-color: var(--cancelled-color-task-element, #E82C3F);
+      }
+
+      .task-container {
+        display: flex;
+        flex-direction: column;
+      }
+      .element-item__title {
+        margin-left: 5px;
+      }
+      
+      .task {
+        align-items: center;
+        color: var(--primary-color);
+        display: flex;
+        flex-grow: 1;
+        justify-content: flex-start;
+      }
+      .element-item__title {
+        margin-left: 5px;
+      }
+
+      @media(min-width: 600px) {
+        .task-container {
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+        }
+      }
+    </style>
+    <div class="task-container">
+      <div class="task">
+        <iron-icon icon="icons:radio-button-checked"></iron-icon>
+        <h3 class="element-item__title">[[title]]</h3>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    /**
+     * `task-element`
+     *
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class TaskElement extends Polymer.Element {
+      static get is() { return 'task-element'; }
+      static get properties() {
+        return {
+          title: {
+            type: String,
+            value: 'Tarea: colleja a ale'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(TaskElement.is, TaskElement);
+  </script>
+</dom-module>
