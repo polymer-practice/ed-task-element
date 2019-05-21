@@ -80,7 +80,7 @@
         <h3 class="element-item__title">[[title]]</h3>
       </div>
       <div class="buttons-set">
-        <template is="dom-if" if=[[^]]>
+        <template is="dom-if" if=[[_showPending]]>
           <button type="button" name="pending" on-click="onClickButton" class="btn pending">Pending</button>
         </template>
         <template is="dom-if" if=[[_showDone]]>
